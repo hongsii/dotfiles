@@ -1,0 +1,28 @@
+########## Terminal apps ##########
+brew "git"
+brew "mas"
+brew "nvm"
+brew "python"
+brew "tldr"
+###################################
+
+########## Desktop Apps ##########
+tap "AdoptOpenJDK/openjdk"
+cask "adoptopenjdk8"
+cask "intellij-idea"
+cask "docker"
+cask "visual-studio-code"
+cask "mysqlworkbench"
+cask "iterm2"
+
+cask "notion" # Todo app https://www.notion.so
+cask "google-chrome"
+
+cask "vmware-horizon-client"
+##################################
+
+########## App Store ##########
+mas "KakaoTalk", id: 869223134
+mas "Magnet", id: 441258766
+mas "Xcode", id: 497799835
+###############################
