@@ -20,6 +20,7 @@ cask "iterm2"
 cask "notion" # Todo app https://www.notion.so
 cask "google-chrome"
 
+cask "hammerspoon"
 cask "vmware-horizon-client"
 ##################################
 
