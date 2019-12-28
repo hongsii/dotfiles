@@ -1,11 +1,8 @@
 -- Based on https://github.com/johngrib/hammerspoon-config/blob/master/modules/inputsource_aurora.lua
 
-local window = require 'hs.window'
-
 local boxes = {}
 local inputEnglish = "com.apple.keylayout.ABC"
 local box_height = 23.3
-local box_height_full_screen = 2
 local default_color = { hex = "#EC0000", alpha = 0.4 }
 
 -- 입력소스 변경 이벤트에 이벤트 리스너를 달아준다
@@ -22,11 +19,7 @@ function enable_show()
         local frame = scr:fullFrame()
 
         -- top
-        if window.focusedWindow():isFullscreen() ~= nil then
-            draw_rectangle(frame.x, 0, frame.w, box_height, default_color)
-        else
-            draw_rectangle(frame.x, 0, frame.w, box_height_full_screen, default_color)
-        end
+        draw_rectangle(frame.x, 0, frame.w, box_height, default_color)
 
         -- bottom
         -- draw_rectangle(frame.x, frame.h - 10, frame.w, box_height, default_color)
