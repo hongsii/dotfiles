@@ -19,10 +19,10 @@ function enable_show()
         local frame = scr:fullFrame()
 
         -- top
-        draw_rectangle(frame.x, 0, frame.w, box_height, default_color)
+        draw_box(frame.x, 0, frame.w, box_height, default_color)
 
         -- bottom
-        -- draw_rectangle(frame.x, frame.h - 10, frame.w, box_height, default_color)
+        -- draw_box(frame.x, frame.h - 10, frame.w, box_height, default_color)
     end)
 end
 
@@ -35,16 +35,12 @@ function disable_show()
     reset_boxes()
 end
 
-function newBox()
-    return hs.drawing.rectangle(hs.geometry.rect(0,0,0,0))
-end
-
 function reset_boxes()
     boxes = {}
 end
 
-function draw_rectangle(x, y, width, height, color)
-  local box = newBox()
+function draw_box(x, y, width, height, color)
+  local box = hs.drawing.rectangle(hs.geometry.rect(0,0,0,0))
   table.insert(boxes, box)
 
   -- 그릴 영역 크기를 잡는다
