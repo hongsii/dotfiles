@@ -1,77 +1,82 @@
-# 마우스 사용
-set -g mouse on
+#################### Common ####################
 
-# window 인덱스 1부터 시작
-set -g base-index 1
-# pane 인덱스 1부터 시작
-set -g pane-base-index 1
+# Options
+set -g base-index 1  # window 인덱스 1부터 시작
+set -g pane-base-index 1  # pane 인덱스 1부터 시작
+set -g mouse on  # 마우스 사용
+set -g history-limit 20000  # window 히스토리 저장 개수
+setw -g mode-keys vi  # Copy mode with vi
 
-# window 히스토리 저장 개수
-set -g history-limit 20000
+# Keymap
+bind t source-file ~/.tmux.conf
 
-######################################################
-
-# common variable
-color_black="colour232"
-
-######################################################
-
-# panes
-set -g pane-border-fg default
-set -g pane-border-bg colour236
-set -g pane-active-border-fg colour160
-set -g pane-active-border-bg default
-
-## keymap
-bind h select-pane -L
-bind j select-pane -D
-bind k select-pane -U
-bind l select-pane -R
-
-######################################################
-
-# window
-set -g window-style 'fg=default,bg=colour236'
-set -g window-active-style 'fg=colour255,bg=colour16'
-
-######################################################
-
-# status bar
+# Status bar 
 set -g status-position bottom
+set -g status-interval 1
 set -g status-justify left
 #set -g status-fg colour137
 set -g status-bg colour234
 set -g status-attr dim
 
-# status variables
-empty_space='#[bg=colour234]  '
-separator_powerline_right=""
-
-# status-left
-session_name="#[fg=colour39] #S "
-set -g status-left "${session_name}"
-
-# status-right
-prefix_indicator="#[fg=colour1,bg=colour255,bold]#{?client_prefix,#[reverse]<C-b>#[noreverse],}"
-pane_title="#[fg=colour234,bg=colour255,bold]#P:[#{=21:pane_title}]"
-    date="#[fg=colour46,bg=colour8,bold]%Y-%m-%d %H:%M"
-set -g status-right "${prefix_indicator}${empty_space}${pane_title}${empty_space}${date}"
-
+## Left status bar
+set -g status-left "#[fg=colour39] #S "
 set -g status-left-length 20
-set -g status-right-length 120
 
-######################################################
-
+## Right status bar
+separator=""
+window_title=" #I:#W"
+window_bg=colour245
+pane_title=" #P "
+pane_bg=colour237
+window_format="#[fg=colour250,bg=${window_bg}]${window_title}#[fg=colour250]#F #[fg=${window_bg},bg=${pane_bg},nobold,nounderscore,noitalics]${separator}"
+pane_format="#[fg=colour250,bg=${pane_bg}]${pane_title}"
+setw -g window-status-format "${window_format}${pane_format}"
 setw -g window-status-fg colour9
 setw -g window-status-bg colour18
 setw -g window-status-attr none
-setw -g window-status-format "#[fg=colour0,bg=colour245] #I #[fg=colour245,bg=colour237,nobold,nounderscore,noitalics]${separator_powerline_right}#[fg=colour222,bg=colour237] #[fg=colour250]#W#[fg=colour250]#F "
 
+current_window_font_color=colour255
+current_window_bg=colour33
+current_pane_bg=colour1
+current_window_format="#[fg=${current_window_font_color},bg=${current_window_bg},bold]${window_title}#[fg=colour196]#F #[fg=${current_window_bg},bg=${current_pane_bg},nobold,nounderscore,noitalics]${separator}"
+current_pane_format="#[fg=${current_window_font_color},bg=${current_pane_bg},bold]${pane_title}"
+setw -g window-status-current-format "${current_window_format}${current_pane_format}"
 setw -g window-status-current-fg colour1
 setw -g window-status-current-bg colour19
 setw -g window-status-current-attr none
-setw -g window-status-current-format "#[fg=colour255,bg=colour1,bold] #I #[fg=colour1,bg=colour33,nobold,nounderscore,noitalics]${separator_powerline_right}#[fg=colour222,bg=colour33] #[fg=colour255]#W#[fg=colour196]#F "
 
 setw -g window-status-bell-attr bold
 setw -g window-status-bell-fg colour255
 setw -g window-status-bell-bg colour1
+
+# Right status bar - right
+left_arrow_separator=""
+empty_space="#[bg=colour234] "
+prefix_indicator="#[fg=colour1,bg=colour255,bold]#{?client_prefix,#[reverse]<C-b>#[noreverse],}"
+current_pane="#[fg=colour255]#{pane_title}"
+date="#[fg=colour46, bg=colour8]${left_arrow_separator}#[fg=colour0,bg=colour46,bold] %Y-%m-%d %H:%M:%S (%a) "
+
+set -g status-right "${prefix_indicator}${empty_space}${current_pane}${empty_space}${date}"
+set -g status-right-length 120
+
+
+#################### Window ####################
+
+# Options
+set -g window-style 'fg=default,bg=colour236'
+set -g window-active-style 'fg=colour255,bg=colour16'
+
+
+#################### Pane ####################
+
+# Options
+set -g pane-border-fg default
+set -g pane-border-bg colour236
+set -g pane-active-border-fg ${current_pane_bg}
+set -g pane-active-border-bg default
+
+## Keymap
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
