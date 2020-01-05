@@ -1,0 +1,71 @@
+# 마우스 사용
+set -g mouse on
+
+# window 인덱스 1부터 시작
+set -g base-index 1
+# pane 인덱스 1부터 시작
+set -g pane-base-index 1
+
+# window 히스토리 저장 개수
+set -g history-limit 20000
+
+######################################################
+
+# common variable
+color_black="colour232"
+
+######################################################
+
+# panes
+set -g pane-border-fg default
+set -g pane-border-bg colour236
+set -g pane-active-border-fg colour160
+set -g pane-active-border-bg default
+
+######################################################
+
+# window
+set -g window-style 'fg=default,bg=colour236'
+set -g window-active-style 'fg=colour255,bg=colour16'
+
+######################################################
+
+# status bar
+set -g status-position bottom
+set -g status-justify left
+#set -g status-fg colour137
+set -g status-bg colour234
+set -g status-attr dim
+
+# status variables
+empty_space='#[bg=colour234]  '
+separator_powerline_right=""
+
+# status-left
+session_name="#[fg=colour39] #S "
+set -g status-left "${session_name}"
+
+# status-right
+prefix_indicator="#[fg=colour1,bg=colour255,bold]#{?client_prefix,#[reverse]<C-b>#[noreverse],}"
+pane_title="#[fg=colour234,bg=colour255,bold]#P:[#{=21:pane_title}]"
+    date="#[fg=colour46,bg=colour8,bold]%Y-%m-%d %H:%M"
+set -g status-right "${prefix_indicator}${empty_space}${pane_title}${empty_space}${date}"
+
+set -g status-left-length 20
+set -g status-right-length 120
+
+######################################################
+
+setw -g window-status-fg colour9
+setw -g window-status-bg colour18
+setw -g window-status-attr none
+setw -g window-status-format "#[fg=colour0,bg=colour245] #I #[fg=colour245,bg=colour237,nobold,nounderscore,noitalics]${separator_powerline_right}#[fg=colour222,bg=colour237] #[fg=colour250]#W#[fg=colour250]#F "
+
+setw -g window-status-current-fg colour1
+setw -g window-status-current-bg colour19
+setw -g window-status-current-attr none
+setw -g window-status-current-format "#[fg=colour255,bg=colour1,bold] #I #[fg=colour1,bg=colour33,nobold,nounderscore,noitalics]${separator_powerline_right}#[fg=colour222,bg=colour33] #[fg=colour255]#W#[fg=colour196]#F "
+
+setw -g window-status-bell-attr bold
+setw -g window-status-bell-fg colour255
+setw -g window-status-bell-bg colour1
