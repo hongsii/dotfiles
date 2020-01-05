@@ -1,0 +1,8 @@
+" Internal plugins
+set surround
+
+" Search
+set hlsearch
+set ignorecase
+set incsearch
+set smartcase
