@@ -1,0 +1,5 @@
+#! /bin/sh
+#
+# Required git-fzf-branch
+
+git merge $@ $(git b l)

@@ -1,0 +1,19 @@
+[include]
+    path = ~/.gitconfig.local
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore
+    autocrlf = input
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    ui = true
+[credential]
+    helper = osxkeychain
+[alias]
+    s = status
+    ss = status -s
+    b = !$HOME/.dotfiles/bin/git-fzf-branch
+    co = !$HOME/.dotfiles/bin/git-fzf-checkout
+    m = !$HOME/.dotfiles/bin/git-fzf-merge

@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# Required git-fzf-branch
+
+readonly INCLUDE_REMOTE_OPTION='all'
+args=( "$@" )
+if [ "${#args[@]}" == 1 ] && [[ "${args[*]}" =~ ^"$INCLUDE_REMOTE_OPTION"$ ]]; then
+  include_remote='--all'
+fi
+if [ -z $args ] || [ $include_remote ]; then
+  branch=$(git b list $include_remote)
+  if [ $branch ]; then git checkout $branch; fi
+else
+  git checkout $@
+fi

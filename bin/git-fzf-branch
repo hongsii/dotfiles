@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# Required fzf
+
+if [ "$1" = 'd' ] || [ "$1" = 'D' ]; then
+  branch=$(git b list)
+  if [ $branch ]; then
+    git branch -$1 $branch
+  fi
+elif [ "$1" = 'l' ] || [ "$1" = 'list' ]; then
+  if [ "$2" ] && [ "$2" = '--all' ]; then
+      include_remote=$2
+  fi
+  git branch $include_remote | grep -v HEAD | fzf --preview 'echo {} | cut -c 3- | xargs git log --color --graph' | cut -c 3-
+fi

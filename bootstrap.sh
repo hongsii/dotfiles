@@ -36,6 +36,6 @@ install_dotfiles() {
   done
 }
 
-# setup_gitconfig
 include_functions
+setup_gitconfig
 install_dotfiles
