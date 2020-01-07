@@ -11,5 +11,8 @@ elif [ "$1" = 'l' ] || [ "$1" = 'list' ]; then
   if [ "$2" ] && [ "$2" = '--all' ]; then
       include_remote=$2
   fi
-  git branch $include_remote | grep -v HEAD | fzf --preview 'echo {} | cut -c 3- | xargs git log --color --graph' | cut -c 3-
+  git branch $include_remote | grep -v HEAD \
+      | fzf --preview 'echo {} | cut -c 3- | xargs git log --color --graph' \
+            --bind 'alt-j:preview-down,alt-k:preview-up,ctrl-f:preview-page-down,ctrl-b:preview-page-up' \
+      | cut -c 3-
 fi
