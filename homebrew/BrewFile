@@ -24,6 +24,7 @@ cask "google-chrome"
 
 cask "hammerspoon"
 cask "vmware-horizon-client"
+cask "slack"
 ##################################
 
 ########## App Store ##########
