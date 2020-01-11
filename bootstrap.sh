@@ -28,7 +28,7 @@ install_dotfiles() {
     dir_path=$(dirname ${src/$DOTFILES_ROOT/.})
     dir_depth=$(echo $dir_path | grep -o '/' | wc -l)
     if (( $dir_depth > 1 )); then
-      dst_dir="$(echo $dir_path | sed -E 's/^\.\/.+\///g')"
+      dst_dir="$(echo $dir_path | sed -E 's/^\.\/[^\/]*\///g')"
       dst="$HOME/.$dst_dir/$(basename "${src%.*}")"
       mkdir -p $(dirname $dst)
     fi
