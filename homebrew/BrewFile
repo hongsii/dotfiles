@@ -18,6 +18,7 @@ cask "docker"
 cask "visual-studio-code"
 cask "mysqlworkbench"
 cask "iterm2"
+cask "bitbar"
 
 cask "notion" # Todo app https://www.notion.so
 cask "google-chrome"
