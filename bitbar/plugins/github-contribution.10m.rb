@@ -127,7 +127,8 @@ module BitBar
         end
 
         def contribution_text_for(contribution)
-          "#{contribution.icon} #{contribution.contributed_on.strftime('%Y-%m-%d (%a)')}   \t#{contribution.count} | color=#{contribution.color}"
+          korean_day_of_weeks = ['일', '월', '화', '수', '목', '금', '토']
+          "#{contribution.icon} #{contribution.contributed_on.strftime('%Y-%m-%d')} (#{korean_day_of_weeks[contribution.contributed_on.wday]})   \t#{contribution.count} | color=#{contribution.color}"
         end
 
         def contribution_activity_for(contribution)
