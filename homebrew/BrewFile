@@ -8,6 +8,7 @@ brew "heroku/brew/heroku"
 brew "chrome-cli"
 brew "fzf"
 brew "tmux"
+brew "broot"
 ###################################
 
 ########## Desktop Apps ##########
