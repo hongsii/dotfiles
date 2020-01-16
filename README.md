@@ -5,7 +5,7 @@ My dotfiles for Mac
 Run this:
 
 ``` shell
-git clone https://github.com/hongsii/dotfiles.git ~/.dotfiles && $_/bootstrap.sh
+git clone https://github.com/hongsii/dotfiles.git ~/.dotfiles && cd $_ && ./bootstrap.sh
 ```
 
 ## Based on
