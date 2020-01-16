@@ -39,3 +39,4 @@ install_dotfiles() {
 include_functions
 setup_gitconfig
 install_dotfiles
+run_install_script
