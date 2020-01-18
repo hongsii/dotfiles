@@ -2,9 +2,10 @@
 #
 # Based on https://github.com/holman/dotfiles/blob/master/macos
 
-echo " Update software for macOS"
-sudo softwareupdate -i -a
+echo "  > Update software for macOS"
+sudo softwareupdate -i -a > /dev/null
 
+echo "  > Apply configuration"
 # Change won to backtick
 target_dir=$HOME/Library/KeyBindings
 mkdir -p $target_dir
