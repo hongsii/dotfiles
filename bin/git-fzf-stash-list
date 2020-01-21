@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Required : fzf
+# Based on : https://www.mimul.com/blog/gui-free-tips-git-command/
+
+git stash list \
+  | fzf --preview 'echo {} | cut -d: -f1 | xargs git stash show -p --color=always' \
+        --height 90% --reverse \
+        --bind 'alt-j:preview-down,alt-k:preview-up,ctrl-f:preview-page-down,ctrl-b:preview-page-up' \
+  | cut -d: -f1
