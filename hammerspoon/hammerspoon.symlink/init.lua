@@ -4,7 +4,7 @@ local MODULE_PATH = "modules"
 local MODULE_SUFFIX = ".lua"
 
 local function loadModuleByName(name)
-    require(MODULE_PATH .. '.' .. name)
+    require(MODULE_PATH .. "/" .. name)
     hs.alert.show('Loaded module : ' .. name)
 end
 
