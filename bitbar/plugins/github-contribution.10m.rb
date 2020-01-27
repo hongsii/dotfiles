@@ -80,6 +80,21 @@ module BitBar
       RE_CONTRIBUTION = %r|<rect class="day" .+ data-count="(\d+)" data-date="(\d\d\d\d-\d\d-\d\d)"/>|
 
       def self.find_all_by(username:)
+        retries = 0
+        begin
+          get_contributions(username: username)
+        rescue SocketError
+          retries += 1
+          if retries == 5
+            raise ConfigurationError, 'Network Error'
+          else
+            sleep(5)
+            retry
+          end
+        end
+      end
+
+      def self.get_contributions(username:)
         [].tap do |contributions|
           html = open(url_for(username: username)) { |f| f.read }
 
