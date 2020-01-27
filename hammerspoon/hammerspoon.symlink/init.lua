@@ -15,7 +15,7 @@ local function loadModulesByPath()
     end
 
     for file in files, dir do
-        if string.match(file, MODULE_SUFFIX) then
+        if file:find(MODULE_SUFFIX .. "$") then
             local moduleName = string.sub(file, 1, string.len(file) - string.len(MODULE_SUFFIX))
             loadModuleByName(moduleName)
         end
