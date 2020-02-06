@@ -12,19 +12,24 @@ brew "broot"
 ###################################
 
 ########## Desktop Apps ##########
+# Programming
 tap "AdoptOpenJDK/openjdk"
 cask "adoptopenjdk8"
+
+# Programming tools
 cask "intellij-idea"
-cask "docker"
 cask "visual-studio-code"
+
+cask "docker"
 cask "mysqlworkbench"
 cask "iterm2"
-cask "bitbar"
 
+cask "bitbar"
+cask "hammerspoon"
+
+# Tools
 cask "notion" # Todo app https://www.notion.so
 cask "google-chrome"
-
-cask "hammerspoon"
 cask "vmware-horizon-client"
 cask "slack"
 ##################################
