@@ -85,7 +85,7 @@ module BitBar
           get_contributions(username: username)
         rescue SocketError
           retries += 1
-          if retries == 7
+          if retries == 10
             raise ConfigurationError, 'Network Error'
           else
             sleep(5)
