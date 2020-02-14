@@ -13,5 +13,6 @@ end
 hs.hotkey.bind(prefix, "c", function() toggleApplication("Google Chrome", "Chrome") end)
 hs.hotkey.bind(prefix, "f", function() toggleApplication("Finder", "Finder") end)
 hs.hotkey.bind(prefix, "t", function() toggleApplication("iTerm 2", "iTerm2") end)
+hs.hotkey.bind(prefix, "i", function() toggleApplication("IntelliJ IDEA", "IntelliJ IDEA") end)
 hs.hotkey.bind(prefix, "k", function() toggleApplication("KakaoTalk", "카카오톡") end)
 hs.hotkey.bind(prefix, "n", function() toggleApplication("Notion", "Notion") end)
