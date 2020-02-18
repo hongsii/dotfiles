@@ -2,34 +2,38 @@
 -- local prefix = {"⇧", "⌥", "⌃"}
 local prefix = {"shift", "option", "ctrl"}
 
+function round(value)
+    return math.floor(value + 0.5)
+end 
+
 hs.hotkey.bind(prefix, "left", function()
     local window = hs.window.focusedWindow()
-    local f = window:frame()
-    local screen = window:screen()
-    local max = screen:frame()
+    local frame = window:frame()
+    local screen = window:screen():frame()
 
-    local halfScreenWidth = max.w / 2
-    if (halfScreenWidth <= f.x) then
-        f.x = halfScreenWidth - (f.w / 2)
-    elseif (halfScreenWidth > f.x) then
-        f.x = 0
+    local halfWindowWidth = round(frame.w / 2)
+    local isInRightArea = frame.x + halfWindowWidth > screen.x + (screen.w / 2)
+    if isInRightArea then
+        frame.x = screen.x + (screen.w / 2) - halfWindowWidth
+    else 
+        frame.x = screen.x
     end
-    window:setFrameInScreenBounds(f, 0)
+    window:setFrameInScreenBounds(frame, 0)
 end)
 
 hs.hotkey.bind(prefix, "right", function()
     local window = hs.window.focusedWindow()
-    local f = window:frame()
-    local screen = window:screen()
-    local max = screen:frame()
+    local frame = window:frame()
+    local screen = window:screen():frame()
 
-    local halfScreenWidth = max.w / 2
-    if (f.x == 0) then
-        f.x = halfScreenWidth - (f.w / 2)
-    else
-        f.x = max.w - f.w
+    local halfWindowWidth = round(frame.w / 2)
+    local isInLeftArea = frame.x + halfWindowWidth < screen.x + (screen.w / 2)
+    if isInLeftArea then
+        frame.x = screen.x + (screen.w / 2) - halfWindowWidth
+    else 
+        frame.x = screen.x + (screen.w - frame.w)
     end
-    window:setFrameInScreenBounds(f, 0)
+    window:setFrameInScreenBounds(frame, 0)
 end)
 
 hs.hotkey.bind(prefix, "up", function()
