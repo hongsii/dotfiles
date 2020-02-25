@@ -53,15 +53,15 @@ end)
 
 hs.hotkey.bind(prefix, "down", function()
     local window = hs.window.focusedWindow()
-    local f = window:frame()
-    local screen = window:screen()
-    local max = screen:fullFrame() -- except for menubar
+    local frame = window:frame()
+    local screen = window:screen():frame()
 
-    local halfScreenHeight = max.h / 2
-    if (f.y == screen:frame().y) then -- include menubar
-        f.y = halfScreenHeight - (f.h / 2)
-    else
-        f.y = max.h
+    local halfWindowHeight = frame.h / 2
+    local isInUpperArea = halfWindowHeight + frame.y < screen.y + (screen.h / 2)
+    if isInUpperArea then
+        frame.y = screen.y + (screen.h / 2) - halfWindowHeight
+    else 
+        frame.y = screen.y + (screen.h - frame.h)
     end
-    window:setFrameInScreenBounds(f, 0)
+    window:setFrameInScreenBounds(frame, 0)
 end)
