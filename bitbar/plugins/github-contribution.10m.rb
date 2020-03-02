@@ -119,7 +119,8 @@ module BitBar
       end
 
       def self.url_for(username:)
-          "https://github.com/users/#{username}/contributions?to=#{Time.now.strftime('%Y-%m-%d')}"
+          # "https://github.com/users/#{username}/contributions?to=#{Time.now.strftime('%Y-%m-%d')}"
+          "https://github.com/users/#{username}/contributions"
       end
     end
 
