@@ -6,6 +6,7 @@ function round(value)
     return math.floor(value + 0.5)
 end 
 
+hs.hotkey.bind(prefix, '.', hs.hints.windowHints)
 hs.hotkey.bind(prefix, "left", function()
     local window = hs.window.focusedWindow()
     local frame = window:frame()
@@ -65,3 +66,16 @@ hs.hotkey.bind(prefix, "down", function()
     end
     window:setFrameInScreenBounds(frame, 0)
 end)
+
+-- resize
+local resize_prefix = {"shift", "command", "ctrl"}
+hs.grid.MARGINX 	= 0
+hs.grid.MARGINY 	= 0
+hs.grid.GRIDWIDTH 	= 7
+hs.grid.GRIDHEIGHT 	= 6
+
+hs.window.animationDuration = 0
+hs.hotkey.bind(resize_prefix, 'UP', hs.grid.resizeWindowShorter)
+hs.hotkey.bind(resize_prefix, 'DOWN', hs.grid.resizeWindowTaller)
+hs.hotkey.bind(resize_prefix, 'RIGHT', hs.grid.resizeWindowWider)
+hs.hotkey.bind(resize_prefix, 'LEFT', hs.grid.resizeWindowThinner)
