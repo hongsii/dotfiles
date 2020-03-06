@@ -1,18 +1,34 @@
 -- Declare prefix key
-prefix = {"⇧", "⌥", "⌃"}
+local prefix = {"shift", "option", "ctrl"}
 
-local function toggleApplication(app, name)
+-- Declare class
+local App = {}
+local appTables = { __index = App }
+function App:new(name) return setmetatable({ name = name, displayName = name }, appTables) end
+function App:new(name, displayName) return setmetatable({ name = name, displayName = displayName }, appTables) end
+
+local apps = {
+  c = App:new("Google Chrome", "Chrome"),
+  i = App:new("IntelliJ IDEA"),
+  f = App:new("Finder"),
+  t = App:new("iTerm 2"),
+  k = App:new("KakaoTalk", "카카오톡"),
+  n = App:new("Notion")
+}
+
+local function toggleApplication(name, displayName)
   local currentApp = hs.application.frontmostApplication()
-  if currentApp:name() ~= name then
-    hs.application.launchOrFocus(app)
+  if currentApp:name() ~= displayName then
+    hs.application.launchOrFocus(name)
   else
     currentApp:hide()
   end
 end
 
-hs.hotkey.bind(prefix, "c", function() toggleApplication("Google Chrome", "Chrome") end)
-hs.hotkey.bind(prefix, "f", function() toggleApplication("Finder", "Finder") end)
-hs.hotkey.bind(prefix, "t", function() toggleApplication("iTerm 2", "iTerm2") end)
-hs.hotkey.bind(prefix, "i", function() toggleApplication("IntelliJ IDEA", "IntelliJ IDEA") end)
-hs.hotkey.bind(prefix, "k", function() toggleApplication("KakaoTalk", "카카오톡") end)
-hs.hotkey.bind(prefix, "n", function() toggleApplication("Notion", "Notion") end)
+local function bindShortCut()
+  for key, app in pairs(apps) do
+    hs.hotkey.bind(prefix, key, function() toggleApplication(app.name, app.displayName) end)
+  end
+end
+
+bindShortCut()
