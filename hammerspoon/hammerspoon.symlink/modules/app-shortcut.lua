@@ -4,14 +4,15 @@ local prefix = {"shift", "option", "ctrl"}
 -- Declare class
 local App = {}
 local appTables = { __index = App }
-function App:new(name) return setmetatable({ name = name, displayName = name }, appTables) end
-function App:new(name, displayName) return setmetatable({ name = name, displayName = displayName }, appTables) end
+function App:new(name, displayName)
+    return setmetatable({ name = name, displayName = displayName or name }, appTables)
+end
 
 local apps = {
   c = App:new("Google Chrome", "Chrome"),
   i = App:new("IntelliJ IDEA"),
   f = App:new("Finder"),
-  t = App:new("iTerm 2"),
+  t = App:new("iTerm 2", "iTerm2"),
   k = App:new("KakaoTalk", "카카오톡"),
   n = App:new("Notion")
 }
