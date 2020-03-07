@@ -22,4 +22,6 @@ local function loadModulesByPath()
     end
 end
 
+hs.hotkey.bind({"shift", "ctrl"}, "r", function() hs.reload() end)
 loadModulesByPath()
+
