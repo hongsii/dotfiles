@@ -6,6 +6,7 @@ function round(value)
     return math.floor(value + 0.5)
 end 
 
+hs.hints.hintChars = {"Q", "W", "E", "R", "A", "S", "D", "F", "Z", "X", "C", "V"}
 hs.hotkey.bind(prefix, '.', hs.hints.windowHints)
 hs.hotkey.bind(prefix, "left", function()
     local window = hs.window.focusedWindow()
