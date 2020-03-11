@@ -4,17 +4,17 @@ local prefix = {"shift", "option", "ctrl"}
 -- Declare class
 local App = {}
 local appTables = { __index = App }
-function App:new(name, displayName)
-    return setmetatable({ name = name, displayName = displayName or name }, appTables)
+function App:new(key, name, displayName)
+    return setmetatable({ key = key, name = name, displayName = displayName or name }, appTables)
 end
 
 local apps = {
-  c = App:new("Google Chrome", "Chrome"),
-  i = App:new("IntelliJ IDEA"),
-  f = App:new("Finder"),
-  t = App:new("iTerm 2", "iTerm2"),
-  k = App:new("KakaoTalk", "카카오톡"),
-  n = App:new("Notion")
+  App:new("c", "Google Chrome", "Chrome"),
+  App:new("i", "IntelliJ IDEA"),
+  App:new("f", "Finder"),
+  App:new("t", "iTerm 2", "iTerm2"),
+  App:new("k", "KakaoTalk", "카카오톡"),
+  App:new("n", "Notion")
 }
 
 local function toggleApplication(name, displayName)
@@ -28,7 +28,7 @@ end
 
 local function bindShortCut()
   for key, app in pairs(apps) do
-    hs.hotkey.bind(prefix, key, function() toggleApplication(app.name, app.displayName) end)
+    hs.hotkey.bind(prefix, app.key, function() toggleApplication(app.name, app.displayName) end)
   end
 end
 
