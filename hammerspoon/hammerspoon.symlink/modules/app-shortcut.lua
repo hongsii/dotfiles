@@ -14,7 +14,8 @@ local apps = {
   App:new("f", "Finder"),
   App:new("t", "iTerm 2", "iTerm2"),
   App:new("k", "KakaoTalk", "카카오톡"),
-  App:new("n", "Notion")
+  App:new("n", "Notion"), 
+  App:new(",", "System Preferences", "시스템 환경설정")
 }
 
 local function toggleApplication(name, displayName)
