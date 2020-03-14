@@ -15,6 +15,7 @@ local apps = {
   App:new("t", "iTerm 2", "iTerm2"),
   App:new("k", "KakaoTalk", "카카오톡"),
   App:new("n", "Notion"), 
+  App:new("s", "Slack"), 
   App:new(",", "System Preferences", "시스템 환경설정")
 }
 
