@@ -19,6 +19,9 @@
     b = !$HOME/.dotfiles/bin/git-fzf-branch
     co = !$HOME/.dotfiles/bin/git-fzf-checkout
     m = !$HOME/.dotfiles/bin/git-fzf-merge
+    stp = stash push
+    stpm = stash push -m
+    stpp = stash pop
     stl = !$HOME/.dotfiles/bin/git-fzf-stash-list
     sta = !git stash apply $(git stl)
     std = !git stash drop $(git stl)
