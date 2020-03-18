@@ -16,6 +16,7 @@
     ss = status -s
     aa = add .
     cm = commit -m
+    acm = !git aa && git cm
     b = !$HOME/.dotfiles/bin/git-fzf-branch
     co = !$HOME/.dotfiles/bin/git-fzf-checkout
     m = !$HOME/.dotfiles/bin/git-fzf-merge
