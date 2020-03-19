@@ -20,6 +20,7 @@
     b = !$HOME/.dotfiles/bin/git-fzf-branch
     co = !$HOME/.dotfiles/bin/git-fzf-checkout
     m = !$HOME/.dotfiles/bin/git-fzf-merge
+    rh = reset --hard
     stp = stash push
     stpm = stash push -m
     stpp = stash pop
