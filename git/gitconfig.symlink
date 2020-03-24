@@ -14,6 +14,7 @@
 [alias]
     s = status
     ss = status -s
+    a = !git add $@
     aa = add .
     cm = commit -m
     acm = !git aa && git cm
