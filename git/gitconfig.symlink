@@ -23,6 +23,7 @@
     m = !$HOME/.dotfiles/bin/git-fzf-merge
     rh = reset --hard
     rha = !git aa && git rh
+    st = !git stash
     stp = stash push
     stpm = stash push -m
     stpp = stash pop
