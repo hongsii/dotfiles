@@ -9,6 +9,7 @@ brew "chrome-cli"
 brew "fzf"
 brew "tmux"
 brew "broot"
+brew "gpg"
 ###################################
 
 ########## Desktop Apps ##########
