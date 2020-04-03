@@ -21,6 +21,7 @@
     b = !$HOME/.dotfiles/bin/git-fzf-branch
     co = !$HOME/.dotfiles/bin/git-fzf-checkout
     m = !$HOME/.dotfiles/bin/git-fzf-merge
+    r = reset
     rh = reset --hard
     rha = !git aa && git rh
     st = !git stash
