@@ -29,7 +29,7 @@ cask "bitbar"
 cask "hammerspoon"
 
 # Tools
-cask "notion" # Todo app https://www.notion.so
+cask "notion"
 cask "google-chrome"
 cask "vmware-horizon-client"
 cask "slack"
