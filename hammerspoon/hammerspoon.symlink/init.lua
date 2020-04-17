@@ -1,15 +1,15 @@
 -- Include modules
-local ROOT_PATH= ".hammerspoon"
-local MODULE_PATH = "modules"
+local ROOT_PATH = os.getenv("HOME") .. "/" .. ".hammerspoon"
+local MODULE_DIR = "modules"
 local MODULE_SUFFIX = ".lua"
 
 local function loadModuleByName(name)
-    require(MODULE_PATH .. "." .. name)
+    require(MODULE_DIR .. "." .. name)
     hs.alert.show('Loaded module : ' .. name)
 end
 
 local function loadModulesByPath()
-    local files, dir = hs.fs.dir(os.getenv("HOME") .. "/" .. ROOT_PATH .. "/" .. MODULE_PATH)
+    local files, dir = hs.fs.dir(ROOT_PATH  .. "/" .. MODULE_DIR)
         if files == nil then
         do return end
     end
@@ -22,6 +22,18 @@ local function loadModulesByPath()
     end
 end
 
--- hs.hotkey.bind({"shift", "ctrl"}, "r", function() hs.reload() end)
+local function autoReload(files)
+    local doReload = false
+    for _,file in pairs(files) do
+        if file:sub(-4) == MODULE_SUFFIX then
+            doReload = true
+        end
+    end
+    if doReload then
+        hs.reload()
+    end
+end
+
+local reloadWatcher = hs.pathwatcher.new(ROOT_PATH, autoReload):start()
 loadModulesByPath()
 
