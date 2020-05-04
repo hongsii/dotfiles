@@ -29,5 +29,5 @@
     stpm = stash push -m
     stpp = stash pop
     stl = !$HOME/.dotfiles/bin/git-fzf-stash-list
-    sta = !git stash apply $(git stl)
-    std = !git stash drop $(git stl)
+    sta = !$HOME/.dotfiles/bin/git-fzf-stash apply
+    std = !$HOME/.dotfiles/bin/git-fzf-stash drop
