@@ -17,7 +17,9 @@
     a = !git add $@
     aa = add .
     cm = commit -m
+    ca = commit --amend
     acm = !git aa && git cm
+    aca = !git aa && git ca
     b = !$HOME/.dotfiles/bin/git-fzf-branch
     co = !$HOME/.dotfiles/bin/git-fzf-checkout
     m = !$HOME/.dotfiles/bin/git-fzf-merge
