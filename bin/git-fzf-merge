@@ -2,4 +2,12 @@
 #
 # Required git-fzf-branch
 
-git merge $@ $(git b l)
+selected=$(git b l)
+
+if [ "$selected" ]; then
+    git merge $@ $selected
+else
+    exit 0
+fi
+
+ 
