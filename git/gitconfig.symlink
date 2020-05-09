@@ -12,23 +12,33 @@
 [credential]
     helper = osxkeychain
 [alias]
+    # status
     s = status
     ss = status -s
+
+    # commit
     a = !git add $@
     aa = add .
     al = !git add $(git ls-files --modified --others --exclude-standard | fzf -m --preview 'echo {} | xargs git diff --color=always')
-    dl = !git diff $(git ls-files --modified --others --exclude-standard | fzf -m --height=60%)
-
     cm = commit -m
     ca = commit --amend
     acm = !git aa && git cm
     aca = !git aa && git ca
+
+    # diff
+    dl = !git diff $(git ls-files --modified --others --exclude-standard | fzf -m --height=60%)
+
+    # branch
     b = !$HOME/.dotfiles/bin/git-fzf-branch
     co = !$HOME/.dotfiles/bin/git-fzf-checkout
     m = !$HOME/.dotfiles/bin/git-fzf-merge
+
+    # reset
     r = reset
     rh = reset --hard
     rha = !git aa && git rh
+
+    # stash
     st = !git stash
     stp = stash push
     stpm = stash push -m
