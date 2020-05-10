@@ -5,10 +5,11 @@
     excludesfile = ~/.gitignore
     autocrlf = input
 [color]
-    diff = auto
+    diff = always
     status = auto
     branch = auto
     ui = true
+    pager = true
 [credential]
     helper = osxkeychain
 [alias]
@@ -19,14 +20,14 @@
     # commit
     a = !git add $@
     aa = add .
-    al = !git add $(git ls-files --modified --others --exclude-standard | fzf -m --preview 'echo {} | xargs git diff --color=always')
+    al = !git add $(git ls-files --modified --others --exclude-standard | fzf -m --preview 'echo {} | xargs git diff')
     cm = commit -m
     ca = commit --amend
     acm = !git aa && git cm
     aca = !git aa && git ca
 
     # diff
-    dl = !git diff $(git ls-files --modified --others --exclude-standard | fzf -m --height=60%)
+    dl = !git diff --color-words $(git ls-files --modified --others --exclude-standard | fzf -m --height=60%)
 
     # branch
     b = !$HOME/.dotfiles/bin/git-fzf-branch
