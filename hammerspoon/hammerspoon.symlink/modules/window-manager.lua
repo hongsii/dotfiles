@@ -59,7 +59,7 @@ hs.hotkey.bind(prefix, "down", function()
     local screen = window:screen():frame()
 
     local halfWindowHeight = frame.h / 2
-    local isInUpperArea = halfWindowHeight + frame.y < screen.y + (screen.h / 2)
+    local isInUpperArea = halfWindowHeight + frame.y < screen.y + (screen.h / 2) - 1
     if isInUpperArea then
         frame.y = screen.y + (screen.h / 2) - halfWindowHeight
     else 
