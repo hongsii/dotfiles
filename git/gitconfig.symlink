@@ -39,7 +39,7 @@
     rha = !git aa && git rh
 
     # stash
-    st = !git stash
+    st = stash
     stp = stash push
     stpm = stash push -m
     stpp = stash pop
