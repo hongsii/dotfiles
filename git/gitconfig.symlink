@@ -38,6 +38,9 @@
     rh = reset --hard
     rha = !git aa && git rh
 
+    # revert
+    rvm = revert -m 1
+
     # stash
     st = stash
     stp = stash push
