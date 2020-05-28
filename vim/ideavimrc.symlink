@@ -3,6 +3,9 @@ set surround
 
 " Search
 set hlsearch
-set ignorecase
 set incsearch
+set ignorecase
 set smartcase
+
+set showmode
+set history=100
