@@ -3,16 +3,17 @@
 # Required fzf
 
 if [ "$1" = 'd' ] || [ "$1" = 'D' ]; then
-  branch=$(git b list)
-  if [ $branch ]; then
-    git branch -$1 $branch
+  branches=$(git b list)
+
+  if [ -n "$branches" ]; then
+    git branch -$1 $branches
   fi
 elif [ "$1" = 'l' ] || [ "$1" = 'list' ]; then
   if [ "$2" ] && [ "$2" = '--all' ]; then
       include_remote=$2
   fi
   git branch $include_remote | grep -v HEAD \
-      | fzf --preview 'echo {} | cut -c 3- | xargs git log --color --graph' \
+      | fzf -m --preview 'echo {} | cut -c 3- | xargs git log --color --graph' \
             --bind 'shift-down:preview-down,shift-up:preview-up,shift-right:preview-page-down,shift-left:preview-page-up' \
       | cut -c 3-
 fi
