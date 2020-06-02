@@ -25,6 +25,9 @@
     acm = !git aa && git cm
     aca = !git aa && git ca
 
+    # pull
+    pl = pull
+
     # diff
     dl = !git diff --color-words $(git ls-files --modified --others --exclude-standard | fzf -m --height=60%)
 
