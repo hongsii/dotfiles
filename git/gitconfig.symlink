@@ -28,6 +28,9 @@
     # pull
     pl = pull
 
+    # push
+    pu = push
+
     # diff
     dl = !git diff --color-words $(git ls-files --modified --others --exclude-standard | fzf -m --height=60%)
 
