@@ -19,6 +19,7 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 filetype plugin indent on
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 syntax on " 형식별 구문 강조 표시
 
 " Editor
