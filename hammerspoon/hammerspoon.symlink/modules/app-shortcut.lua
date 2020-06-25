@@ -11,11 +11,14 @@ end
 local apps = {
   App:new("c", "Google Chrome", "Chrome"),
   App:new("i", "IntelliJ IDEA"),
+  App:new("l", "Calendar"),
   App:new("f", "Finder"),
   App:new("t", "iTerm 2", "iTerm2"),
   App:new("k", "KakaoTalk", "카카오톡"),
+  App:new("m", "MySQLWorkbench"), 
   App:new("n", "Notion"), 
   App:new("s", "Slack"), 
+  App:new("v", "VMware Horizon Client"), 
   App:new(",", "System Preferences", "시스템 환경설정")
 }
 
