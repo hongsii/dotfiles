@@ -42,7 +42,6 @@
     rvm = revert -m 1
 
     # stash
-    st = stash
     stp = stash push
     stpm = stash push -m
     stpp = stash pop
