@@ -1,5 +1,6 @@
 ########## Terminal apps ##########
 brew "git"
+brew "zsh"
 brew "mas"
 brew "nvm"
 brew "python"
