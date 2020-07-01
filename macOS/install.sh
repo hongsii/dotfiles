@@ -19,6 +19,8 @@ EOF
 
 ## Disable press-and-hold for keys in favor of key repeat.
 defaults write -g ApplePressAndHoldEnabled -bool false
+defaults write -g InitialKeyRepeat -int 15 # min : 15
+defaults write -g KeyRepeat -int 1 # min : 1
 
 ## Apply Mission Control options
 defaults write com.apple.dock mru-spaces -bool false # Spaces를 최근 사용 내역에 따라 자동으로 재정렬
