@@ -29,3 +29,6 @@ defaults write com.apple.dock tilesize -int 60 # 크기 (max: 128)
 defaults write com.apple.dock largesize -int 60 # 확대 (max: 128)
 defaults write com.apple.dock show-recents -bool false # Dock에서 최근 사용한 응용 프로그램 보기
 killall Dock # Dock 설정 적용
+
+## Remove siri icon on menubar
+defaults write com.apple.Siri StatusMenuVisible -bool false
