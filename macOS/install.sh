@@ -27,6 +27,7 @@ defaults write com.apple.dock mru-spaces -bool false # Spaces를 최근 사용 �
 defaults write com.apple.dock expose-group-apps -bool true # 응용 프로그램별로 윈도우 그룹 생성
 ## Apply dock options
 defaults write com.apple.dock autohide -bool true # 자동으로 Dock 가리기와 보기
+defaults write com.apple.dock autohide-delay -float 0 # Dock 가리기 및 보기 시 딜레이 제거
 defaults write com.apple.dock tilesize -int 60 # 크기 (max: 128)
 defaults write com.apple.dock largesize -int 60 # 확대 (max: 128)
 defaults write com.apple.dock show-recents -bool false # Dock에서 최근 사용한 응용 프로그램 보기
