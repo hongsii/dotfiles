@@ -32,3 +32,13 @@ killall Dock # Dock 설정 적용
 
 ## Remove siri icon on menubar
 defaults write com.apple.Siri StatusMenuVisible -bool false
+
+## Add menu bar icon
+defaults write com.apple.systemuiserver menuExtras -array \
+    "/System/Library/CoreServices/Menu Extras/Battery.menu" \
+    "/System/Library/CoreServices/Menu Extras/Clock.menu" \
+    "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
+    "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
+    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
+    "/System/Library/CoreServices/Menu Extras/Displays.menu"
+killall SystemUIServer
