@@ -8,4 +8,4 @@ set ignorecase
 set smartcase
 
 set showmode
-set history=100
+set history=1000
