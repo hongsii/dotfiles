@@ -22,15 +22,13 @@ local function loadModulesByPath()
     end
 end
 
-local autoReloader = hs.pathwatcher.new(ROOT_PATH, function (files)
+autoReloader = hs.pathwatcher.new(ROOT_PATH, function (files)
     for _, file in pairs(files) do
         if file:sub(-4) == MODULE_SUFFIX then
             hs.reload()
             break
         end
     end
-end)
-
-autoReloader:start()
+end):start()
 loadModulesByPath()
 
