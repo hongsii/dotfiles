@@ -70,13 +70,36 @@ end)
 
 -- resize
 local resize_prefix = {"shift", "command", "ctrl"}
-hs.grid.MARGINX 	= 0
-hs.grid.MARGINY 	= 0
-hs.grid.GRIDWIDTH 	= 7
-hs.grid.GRIDHEIGHT 	= 6
+local RESIZE_CONST = 4
+
+function applyResize(size) return size / RESIZE_CONST end
+function increaseHeight()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.h = f.h + applyResize(f.h)
+    win:setFrame(f)
+end
+function decreaseHeight()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.h = f.h - applyResize(f.h)
+    win:setFrame(f)
+end
+function increaseWidth()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.w = f.w + applyResize(f.w)
+    win:setFrame(f)
+end
+function decreaseWidth()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    f.w = f.w - applyResize(f.w)
+    win:setFrame(f)
+end
 
 hs.window.animationDuration = 0
-hs.hotkey.bind(resize_prefix, 'UP', hs.grid.resizeWindowShorter)
-hs.hotkey.bind(resize_prefix, 'DOWN', hs.grid.resizeWindowTaller)
-hs.hotkey.bind(resize_prefix, 'RIGHT', hs.grid.resizeWindowWider)
-hs.hotkey.bind(resize_prefix, 'LEFT', hs.grid.resizeWindowThinner)
+hs.hotkey.bind(resize_prefix, 'UP', decreaseHeight, nil, decreaseHeight)
+hs.hotkey.bind(resize_prefix, 'DOWN', increaseHeight, nil, increaseHeight)
+hs.hotkey.bind(resize_prefix, 'LEFT', decreaseWidth, nil, decreaseWidth)
+hs.hotkey.bind(resize_prefix, 'RIGHT', increaseWidth, nil, increaseWidth)
