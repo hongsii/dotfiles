@@ -6,8 +6,15 @@ function round(value)
     return math.floor(value + 0.5)
 end 
 
-hs.hints.hintChars = {"Q", "W", "E", "R", "A", "S", "D", "F", "Z", "X", "C", "V"}
+-- hotkey hint
+hs.hints.hintChars = {
+    "Q", "W", "E", "R",
+    "A", "S", "D", "F",
+    "Z", "X", "C", "V"
+}
 hs.hotkey.bind(prefix, '.', hs.hints.windowHints)
+
+-- move window
 hs.hotkey.bind(prefix, "left", function()
     local window = hs.window.focusedWindow()
     local frame = window:frame()
@@ -99,7 +106,7 @@ function decreaseWidth()
 end
 
 hs.window.animationDuration = 0
-hs.hotkey.bind(resize_prefix, 'UP', decreaseHeight, nil, decreaseHeight)
-hs.hotkey.bind(resize_prefix, 'DOWN', increaseHeight, nil, increaseHeight)
-hs.hotkey.bind(resize_prefix, 'LEFT', decreaseWidth, nil, decreaseWidth)
-hs.hotkey.bind(resize_prefix, 'RIGHT', increaseWidth, nil, increaseWidth)
+hs.hotkey.bind(resize_prefix, "up", decreaseHeight, nil, decreaseHeight)
+hs.hotkey.bind(resize_prefix, "down", increaseHeight, nil, increaseHeight)
+hs.hotkey.bind(resize_prefix, "left", decreaseWidth, nil, decreaseWidth)
+hs.hotkey.bind(resize_prefix, "right", increaseWidth, nil, increaseWidth)
