@@ -39,6 +39,7 @@
     rha = !git aa && git rh
 
     # revert
+    rv = revert
     rvm = revert -m 1
 
     # stash
