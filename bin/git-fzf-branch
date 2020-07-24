@@ -14,6 +14,7 @@ elif [ "$1" = 'l' ] || [ "$1" = 'list' ]; then
   fi
   git branch $include_remote | grep -v HEAD \
       | fzf -m --preview 'echo {} | cut -c 3- | xargs git log --color --graph' \
+            --height 30% \
             --bind 'shift-down:preview-down,shift-up:preview-up,shift-right:preview-page-down,shift-left:preview-page-up' \
       | cut -c 3-
 fi
