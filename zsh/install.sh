@@ -20,3 +20,12 @@ unset config_files
 
 EOF
 
+cat <<EOF >> $HOME/.zshrc
+
+# Set local configuration
+if [[ -a ~/.localrc ]]; then
+  source ~/.localrc
+fi
+EOF
+
+
