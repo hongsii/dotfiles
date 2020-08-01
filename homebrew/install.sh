@@ -19,4 +19,3 @@ fi
 brew update
 brew bundle --file=$brew_file
 brew cleanup
-brew cask cleanup
