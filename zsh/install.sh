@@ -1,11 +1,9 @@
 #! /bin/bash
 
-# if test $(which zsh); then
-#     echo "Already installed zsh"
-#     exit 0
-# fi
-# 
-# chsh -s $(which zsh)
+if ! test $(which zsh); then
+    echo "zsh musb be installed"
+    exit 0
+fi
 
 cat <<EOF >> $HOME/.zshrc
 
