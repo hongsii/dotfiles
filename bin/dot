@@ -4,13 +4,8 @@
 
 set -e
 
-# export ZSH=$HOME/.dotfiles
-
 parentDirectory="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P)"
 dotfilesDirectory="$(cd "$( dirname "$parentDirectory" )" && pwd -P)"
-
-echo $parentDirectory
-echo $dotfilesDirectory
 
 displayUsageAndExit() {
 	echo "dot -- dotfiles management"
