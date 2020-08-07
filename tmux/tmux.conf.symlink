@@ -1,6 +1,9 @@
 #################### Common ####################
 
 # Options
+set -g default-terminal "screen-256color"
+setw -g xterm-keys on
+set -s escape-time 10 
 set -g base-index 1  # window 인덱스 1부터 시작
 set -g pane-base-index 1  # pane 인덱스 1부터 시작
 set -g mouse on  # 마우스 사용
