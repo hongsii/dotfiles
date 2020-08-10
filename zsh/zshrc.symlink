@@ -23,8 +23,8 @@ autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 ### End of Zinit's installer chunk
 
-## Plugin
-zplugin light romkatv/powerlevel10k
+# Plugin
+zinit light romkatv/powerlevel10k
 
 zinit light zdharma/fast-syntax-highlighting
 zinit light zsh-users/zsh-completions
