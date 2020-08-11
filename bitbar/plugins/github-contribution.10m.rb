@@ -212,7 +212,7 @@ if __FILE__ == $0
     BitBar::GitHubContribution::App.new(config).run
   rescue BitBar::INIFile::Error
     puts <<-EOM.gsub(/^ */, '')
-      ⚠️
+      :x:
       ---
       To setup, create or edit your ~/.bitbarrc file with a new section:
       |
