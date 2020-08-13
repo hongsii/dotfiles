@@ -1,4 +1,4 @@
-#!/bin/bash# 
+# !/bin/bash
 #
 # Based on https://github.com/holman/dotfiles/blob/master/script/bootstrap
 
