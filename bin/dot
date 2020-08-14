@@ -18,7 +18,7 @@ displayUsageAndExit() {
 	exit
 }
 
-while test $# -gt 0; do
+while test $# -ge 0; do
 	case "$1" in
 		"-h"|"--help")
 			displayUsageAndExit
