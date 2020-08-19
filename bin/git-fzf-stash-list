@@ -5,6 +5,6 @@
 
 git stash list \
   | fzf --preview 'echo {} | cut -d: -f1 | xargs git stash show -p --color=always' \
-        --height 30% --reverse \
+        --height 40% --reverse \
         --bind 'shift-down:preview-down,shift-up:preview-up,shift-right:preview-page-down,shift-left:preview-page-up' \
   | cut -d: -f1
