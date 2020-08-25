@@ -2,5 +2,4 @@
 HISTSIZE=10000
 SAVEHIST=10000
 
-setopt SHARE_HISTORY
 setopt EXTENDED_HISTORY # save beginning timestamp and duration to history file
