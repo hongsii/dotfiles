@@ -14,6 +14,7 @@ local apps = {
   App:new("l", "Calendar"),
   App:new("f", "Finder"),
   App:new("t", "iTerm 2", "iTerm2"),
+  App:new("w", "카카오워크", "카카오워크"),
   App:new("k", "KakaoTalk", "카카오톡"),
   App:new("m", "MySQLWorkbench"), 
   App:new("n", "Notion"), 
