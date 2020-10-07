@@ -20,6 +20,7 @@ local apps = {
   App:new(defaultPrefix, "n", "Notion"), 
   App:new(defaultPrefix, "s", "Slack"), 
   App:new(defaultPrefix, "v", "VMware Horizon Client"), 
+  App:new(defaultPrefix, "p", "Pay VDI Selector"), 
   App:new(defaultPrefix, ",", "System Preferences", "시스템 환경설정")
 }
 
