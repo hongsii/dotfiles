@@ -19,7 +19,7 @@ function enable_show()
         local frame = scr:fullFrame()
 
         -- top
-        draw_box(frame.x, 0, frame.w, box_height, default_color)
+        draw_box(frame.x, frame.y, frame.w, box_height, default_color)
 
         -- bottom
         -- draw_box(frame.x, frame.h - 10, frame.w, box_height, default_color)
