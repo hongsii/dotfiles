@@ -7,6 +7,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set clipboard=unnamed
 
 set showmode
 set history=1000
