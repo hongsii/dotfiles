@@ -11,6 +11,7 @@ end
 local apps = {
   App:new(defaultPrefix, "c", "Google Chrome", "Chrome"),
   App:new(defaultPrefix, "i", "IntelliJ IDEA"),
+  App:new(defaultPrefix, "d", "DataGrip"),
   App:new(defaultPrefix, "l", "Calendar"),
   App:new(defaultPrefix, "f", "Finder"),
   App:new(defaultPrefix, "t", "iTerm 2", "iTerm2"),
