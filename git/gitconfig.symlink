@@ -52,3 +52,5 @@
     stl = !$HOME/.dotfiles/bin/git-fzf-stash-list
     sta = !$HOME/.dotfiles/bin/git-fzf-stash apply
     std = !$HOME/.dotfiles/bin/git-fzf-stash drop
+[pull]
+	rebase = false
