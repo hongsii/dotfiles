@@ -1,6 +1,7 @@
 " Internal plugins
 set surround
 set ReplaceWithRegister
+set easymotion
 
 " Search
 set hlsearch
@@ -11,3 +12,15 @@ set clipboard=unnamed
 
 set showmode
 set history=1000
+
+
+" Plugin Configurations
+
+
+"" easymotion
+let mapleader="\\"
+nmap <Leader>l <Plug>(easymotion-lineforward)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+nmap <Leader>h <Plug>(easymotion-linebackward)
+nmap <Leader>a <Plug>(easymotion-jumptoanywhere)
