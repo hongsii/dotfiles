@@ -24,7 +24,6 @@ cask "docker"
 cask "mysqlworkbench"
 cask "iterm2"
 
-cask "bitbar"
 cask "hammerspoon"
 
 # Tools
