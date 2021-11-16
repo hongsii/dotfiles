@@ -22,7 +22,8 @@ local apps = {
   App:new(defaultPrefix, "s", "Slack"), 
   App:new(defaultPrefix, "v", "VMware Horizon Client"), 
   App:new(defaultPrefix, "p", "Pay VDI Selector"), 
-  App:new(defaultPrefix, ",", "System Preferences", "시스템 환경설정")
+  App:new(defaultPrefix, ",", "System Preferences", "시스템 환경설정"),
+  App:new(defaultPrefix, "u", "Visual Studio Code")
 }
 
 local function toggleApplication(name, displayName)
