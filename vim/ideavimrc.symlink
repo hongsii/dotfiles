@@ -1,7 +1,6 @@
 " Internal plugins
 set surround
 set ReplaceWithRegister
-set easymotion
 
 " Search
 set hlsearch
@@ -11,16 +10,16 @@ set smartcase
 set clipboard=unnamed
 
 set showmode
-set history=1000
+set history=10000
 
 
-" Plugin Configurations
+" Set <leader>
+let mapleader = " "
 
+" prevent to lose slection when indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
 
-"" easymotion
-let mapleader="\\"
-nmap <Leader>l <Plug>(easymotion-lineforward)
-nmap <Leader>j <Plug>(easymotion-j)
-nmap <Leader>k <Plug>(easymotion-k)
-nmap <Leader>h <Plug>(easymotion-linebackward)
-nmap <Leader>a <Plug>(easymotion-jumptoanywhere)
+" prevent to overwrite register when pasting over selection
+vnoremap p pgvy
