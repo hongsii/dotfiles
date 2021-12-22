@@ -59,7 +59,7 @@ set nrformats= "0이 앞에 붙은 숫자일 때, 8진수가 아닌 10진수값�
 set t_Co=256 "256 컬러 사용
 
 " Keymap
-let mapleader="\\"
+let mapleader=" "
 map <Leader>nt <ESC>:NERDTree<CR>
 autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -81,6 +81,13 @@ let g:AirlineTheme='base16_colors'
 " vim-markdown
 set shell=bash\ -i
 
-" Custom abbreviate
-iabbr <expr> __time strftime("%Y-%m-%d %H:%M:%S")
-iabbr <expr> __kortime strftime("%Y-%m-%d %H:%M:%S +0900")
+" prevent to lose slection when indenting
+vnoremap < <gv
+vnoremap > >gv
+vnoremap = =gv
+
+" prevent to overwrite register when pasting over selection
+vnoremap p pgvy
+
+nnoremap <leader>[ :sp<cr>
+nnoremap <leader>] :vsp<cr>

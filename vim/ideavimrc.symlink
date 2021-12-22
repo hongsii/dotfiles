@@ -1,6 +1,6 @@
-" Internal plugins
-set surround
-set ReplaceWithRegister
+set nu rnu
+set showmode
+set history=10000
 
 " Search
 set hlsearch
@@ -9,9 +9,9 @@ set ignorecase
 set smartcase
 set clipboard=unnamed
 
-set showmode
-set history=10000
-
+" Internal plugins
+set surround
+set ReplaceWithRegister
 
 " Set <leader>
 let mapleader = " "
