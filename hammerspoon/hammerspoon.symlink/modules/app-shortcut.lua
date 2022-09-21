@@ -15,7 +15,7 @@ local apps = {
   App:new(defaultPrefix, "l", "Calendar"),
   App:new(defaultPrefix, "f", "Finder"),
   App:new(defaultPrefix, "`", "iTerm 2", "iTerm2"),
-  App:new(defaultPrefix, "w", "카카오워크", "카카오워크"),
+  App:new(defaultPrefix, "w", "kakaowork", "카카오워크"),
   App:new(defaultPrefix, "k", "KakaoTalk", "카카오톡"),
   App:new(defaultPrefix, "m", "MySQLWorkbench"), 
   App:new(defaultPrefix, "n", "Notion"), 
