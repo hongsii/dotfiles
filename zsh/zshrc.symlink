@@ -60,3 +60,5 @@ do
   source $file
 done
 unset config_files
+
+export FZF_DEFAULT_OPTS="--bind 'ctrl-e:preview-down,ctrl-y:preview-up,ctrl-f:preview-page-down,ctrl-b:preview-page-up'"
