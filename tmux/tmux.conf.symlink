@@ -10,22 +10,19 @@ set -g mouse on  # 마우스 사용
 set -g history-limit 20000  # window 히스토리 저장 개수
 setw -g mode-keys vi  # Copy mode with vi
 
-# Keymap
-bind t source-file ~/.tmux.conf
+#################### StatusBar ####################
 
-# Status bar 
 set -g status-position bottom
 set -g status-interval 1
 set -g status-justify left
 #set -g status-fg colour137
-set -g status-bg colour234
+set -g status-bg black
 set -g status-style dim
 
 ## Left status bar
 set -g status-left "#[fg=colour39] #S "
 set -g status-left-length 20
 
-## Right status bar
 separator=""
 window_title=" #I:#W"
 window_bg=colour245
@@ -39,20 +36,17 @@ setw -g window-status-style fg=colour9,bg=colour18,none
 current_window_font_color=colour255
 current_window_bg=colour33
 current_pane_bg=colour1
-current_window_format="#[fg=${current_window_font_color},bg=${current_window_bg},bold]${window_title}#[fg=colour196]#F #[fg=${current_window_bg},bg=${current_pane_bg},nobold,nounderscore,noitalics]${separator}"
-current_pane_format="#[fg=${current_window_font_color},bg=${current_pane_bg},bold]${pane_title}"
+current_window_format="#[fg=${current_window_font_color},bg=${current_window_bg},bold]${window_title}#[fg=colour196]#F #[fg=${current_window_bg},bg=${current_pane_bg},nobold,nounderscore,noitalics]${separator}#[default]"
+current_pane_format="#[fg=${current_window_font_color},bg=${current_pane_bg},bold]${pane_title}#[default]"
 setw -g window-status-current-format "${current_window_format}${current_pane_format}"
 setw -g window-status-current-style fg=colour1,bg=colour19,none
 setw -g window-status-bell-style fg=colour255,bg=colour1,bold
 
 # Right status bar - right
-left_arrow_separator=""
-empty_space="#[bg=colour234] "
-prefix_indicator="#[fg=colour1,bg=colour255,bold]#{?client_prefix,#[reverse]<C-b>#[noreverse],}"
-current_pane="#[fg=colour255]#{pane_title}"
-date="#[fg=colour46, bg=colour8]${left_arrow_separator}#[fg=colour0,bg=colour46,bold] %Y-%m-%d %H:%M:%S (%a) "
+prefix_indicator="#[fg=#ff0000,bold] #[bg=white]#{?client_prefix,<C-b>,}#[default] #[default]"
+sync_pane="#[bold]#{?pane_synchronized,#[fg=#ff0000]SYNC:ON#[default],#[fg=grey]SYNC:OFF#[default]}#[default]"
 
-set -g status-right "${prefix_indicator}${empty_space}${current_pane}${empty_space}${date}"
+set -g status-right "${prefix_indicator}${sync_pane}"
 set -g status-right-length 120
 
 
@@ -69,8 +63,13 @@ set -g window-active-style 'fg=colour255,bg=colour16'
 set -g pane-border-style fg=default,bg=colour236
 set -g pane-active-border-style fg=${current_pane_bg},bg=default
 
-## Keymap
+#################### KeyMap ####################
+
 bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
+
+bind r source-file ~/.tmux.conf \; display-message "Reloaded config"
+
+bind C-y set-window-option synchronize-panes
