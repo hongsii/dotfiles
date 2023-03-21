@@ -3,20 +3,19 @@ brew "git"
 brew "zsh"
 brew "mas"
 brew "nvm"
-brew "python"
 brew "tldr"
 brew "fzf"
 brew "tmux"
-brew "gpg"
 ###################################
 
 ########## Desktop Apps ##########
 # Programming
-tap "AdoptOpenJDK/openjdk"
-cask "adoptopenjdk8"
+# tap "AdoptOpenJDK/openjdk"
+# cask "adoptopenjdk8"
 
 # Programming tools
 cask "intellij-idea"
+cask "datagrip"
 cask "visual-studio-code"
 
 cask "docker"
@@ -25,7 +24,7 @@ cask "iterm2"
 cask "hammerspoon"
 
 # Tools
-cask "notion"
+# cask "notion"
 cask "google-chrome"
 cask "vmware-horizon-client"
 cask "slack"
@@ -34,7 +33,8 @@ cask "maccy"
 ##################################
 
 ########## App Store ##########
-mas "KakaoTalk", id: 869223134
 mas "Magnet", id: 441258766
-mas "Xcode", id: 497799835
+mas "MeetingBar for Meet, Zoom & Co", id: 1532419400
+# mas "KakaoTalk", id: 869223134
+# mas "Xcode", id: 497799835
 ###############################
