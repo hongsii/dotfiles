@@ -9,6 +9,9 @@ set ignorecase
 set smartcase
 set clipboard=unnamed
 
+" Sound
+set visualbell
+
 " Internal plugins
 set surround
 set ReplaceWithRegister
