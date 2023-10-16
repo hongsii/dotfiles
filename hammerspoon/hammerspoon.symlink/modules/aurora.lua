@@ -9,9 +9,9 @@ local box_height = 23.3
 local box_color = { hex = "#00FF00", alpha = 0.3 }
 
 -- 한/영 전환 이벤트
-hs.keycodes.inputSourceChanged(function()
-    showAurora(hs.window.frontmostWindow())
-end)
+-- hs.keycodes.inputSourceChanged(function()
+    -- showAurora(hs.window.frontmostWindow())
+-- end)
 
 function showAurora(window)
     if window == nil then
