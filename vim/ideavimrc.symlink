@@ -2,22 +2,18 @@ set nu rnu
 set showmode
 set history=10000
 
-" Search
 set hlsearch
 set incsearch
 set ignorecase
 set smartcase
 set clipboard=unnamed
 
-" Sound
 set visualbell
 
-" Internal plugins
-set surround
-set ReplaceWithRegister
-
-" Set <leader>
-let mapleader = " "
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'vim-scripts/argtextobj.vim'
 
 " prevent to lose slection when indenting
 vnoremap < <gv
