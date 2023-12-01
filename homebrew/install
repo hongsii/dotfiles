@@ -1,13 +1,12 @@
 #! /bin/bash
 
-if [ -x "$(command -v brew)" ]; then
-    echo "  > Already install brew. skip this script"
-    exit 0
-fi
+#if [ -x "$(command -v brew)" ]; then
+#    echo "  > Already install brew. skip this script"
+#    exit 0
+#fi
 
 echo "  > Install homebrew"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 SCRIPT_PATH=$(dirname $0)
 brew_file="$SCRIPT_PATH/BrewFile"
@@ -19,3 +18,5 @@ fi
 brew update
 brew bundle --file=$brew_file
 brew cleanup
+
+$(brew --prefix)/opt/fzf/install
