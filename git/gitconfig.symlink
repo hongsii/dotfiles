@@ -35,6 +35,8 @@
     b = !$HOME/.dotfiles/bin/git-fzf-branch
     co = !$HOME/.dotfiles/bin/git-fzf-checkout
     m = !$HOME/.dotfiles/bin/git-fzf-merge
+    ups = git branch --show-current
+    ups = "!f() { branch=$(git branch --show-current); git branch --set-upstream-to=origin/$branch $branch; }; f"
 
     # reset
     r = reset
