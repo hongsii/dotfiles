@@ -15,13 +15,10 @@ local apps = {
   App:new(defaultPrefix, "l", "Calendar"),
   App:new(defaultPrefix, "f", "Finder"),
   App:new(defaultPrefix, "`", "iTerm", "iTerm"),
-  App:new(defaultPrefix, "w", "kakaowork", "카카오워크"),
   App:new(defaultPrefix, "k", "KakaoTalk", "카카오톡"),
-  App:new(defaultPrefix, "m", "MySQLWorkbench"), 
   App:new(defaultPrefix, "n", "Notion"), 
   App:new(defaultPrefix, "s", "Slack"), 
   App:new(defaultPrefix, "v", "VMware Horizon Client"), 
-  App:new(defaultPrefix, "p", "Pay VDI Selector"), 
   App:new(defaultPrefix, ",", "System Preferences", "시스템 환경설정"),
   App:new(defaultPrefix, "u", "Visual Studio Code")
 }
