@@ -93,5 +93,9 @@ vnoremap = =gv
 " prevent to overwrite register when pasting over selection
 vnoremap p pgvy
 
+map <leader>n :bnext<cr>
+map <leader>p :bprevious<cr>
+map <leader>d :bdelete<cr>
+
 nnoremap <leader>[ :sp<cr>
 nnoremap <leader>] :vsp<cr>
