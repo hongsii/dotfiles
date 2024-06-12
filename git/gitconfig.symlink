@@ -56,5 +56,8 @@
     std = !$HOME/.dotfiles/bin/git-fzf-stash drop
     recent = "!f() { script -q /dev/null git for-each-ref --sort=-committerdate refs/heads/ --format='%(HEAD)%(color:yellow)%(refname:short)%(color:reset)|%(authordate:short)|%(color:red)%(objectname:short)%(color:reset)|%(subject) by %(color:blue)%(authorname)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset))'|column -ts'|'|head -5; }; f"
 
+    # Open a remote branch in a browser
+    open = !git remote -v | awk '/origin.*push/ {print $2}' | xargs open
+
 [pull]
 	rebase = false
