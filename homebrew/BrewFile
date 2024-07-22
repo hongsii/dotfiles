@@ -30,6 +30,7 @@ cask "vmware-horizon-client"
 cask "slack"
 cask "postman"
 cask "maccy"
+cask "shottr"
 ##################################
 
 ########## App Store ##########
