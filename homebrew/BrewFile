@@ -11,6 +11,7 @@ brew "tmux"
 
 ########## Desktop Apps ##########
 # Programming tools
+cask "jetbrains-toolbox"
 cask "intellij-idea"
 cask "datagrip"
 cask "visual-studio-code"
