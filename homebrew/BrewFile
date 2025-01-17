@@ -9,10 +9,6 @@ brew "tmux"
 ###################################
 
 ########## Desktop Apps ##########
-# Programming
-# tap "AdoptOpenJDK/openjdk"
-# cask "adoptopenjdk8"
-
 # Programming tools
 cask "intellij-idea"
 cask "datagrip"
@@ -26,16 +22,13 @@ cask "hammerspoon"
 # Tools
 # cask "notion"
 cask "google-chrome"
-cask "vmware-horizon-client"
-cask "slack"
-cask "postman"
 cask "maccy"
 cask "shottr"
 ##################################
 
 ########## App Store ##########
 mas "Magnet", id: 441258766
-mas "MeetingBar for Meet, Zoom & Co", id: 1532419400
+# mas "MeetingBar for Meet, Zoom & Co", id: 1532419400
 # mas "KakaoTalk", id: 869223134
 # mas "Xcode", id: 497799835
 ###############################

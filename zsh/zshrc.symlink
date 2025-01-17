@@ -56,3 +56,5 @@ do
   source $file
 done
 unset config_files
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
