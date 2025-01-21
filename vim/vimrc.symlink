@@ -93,9 +93,16 @@ vnoremap = =gv
 " prevent to overwrite register when pasting over selection
 vnoremap p pgvy
 
+" buffer
 map <leader>n :bnext<cr>
 map <leader>p :bprevious<cr>
 map <leader>d :bdelete<cr>
 
+" Winwow
+let defaultResize = 5
 nnoremap <leader>[ :sp<cr>
 nnoremap <leader>] :vsp<cr>
+nnoremap <leader>+ :<C-u>resize +<C-r>=(v:count > 0 ? v:count : defaultResize)<cr><cr>
+nnoremap <leader>- :<C-u>resize -<C-r>=(v:count > 0 ? v:count : defaultResize)<cr><cr>
+nnoremap <leader>> :<C-u>vertical resize +<C-r>=(v:count > 0 ? v:count : defaultResize)<cr><cr>
+nnoremap <leader>< :<C-u>vertical resize -<C-r>=(v:count > 0 ? v:count : defaultResize)<cr>cr>
