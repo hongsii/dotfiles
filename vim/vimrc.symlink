@@ -105,4 +105,4 @@ nnoremap <leader>] :vsp<cr>
 nnoremap <leader>+ :<C-u>resize +<C-r>=(v:count > 0 ? v:count : defaultResize)<cr><cr>
 nnoremap <leader>- :<C-u>resize -<C-r>=(v:count > 0 ? v:count : defaultResize)<cr><cr>
 nnoremap <leader>> :<C-u>vertical resize +<C-r>=(v:count > 0 ? v:count : defaultResize)<cr><cr>
-nnoremap <leader>< :<C-u>vertical resize -<C-r>=(v:count > 0 ? v:count : defaultResize)<cr>cr>
+nnoremap <leader>< :<C-u>vertical resize -<C-r>=(v:count > 0 ? v:count : defaultResize)<cr><cr>
