@@ -12,6 +12,17 @@
     pager = true
 [credential]
     helper = osxkeychain
+[branch]
+    sort = -committerdate
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+[push]
+    autoSetupRemote = true
+[pull]
+    rebase = false
 [alias]
     # status
     s = status
@@ -59,5 +70,5 @@
     # Open a remote branch in a browser
     open = !git remote -v | awk '/origin.*push/ {print $2}' | xargs open
 
-[pull]
-	rebase = false
+    # log
+    out = "log @{u}.."
