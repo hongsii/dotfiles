@@ -32,7 +32,7 @@ compinit
 
 # Apply fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS="--bind 'ctrl-e:preview-down,ctrl-y:preview-up,ctrl-f:preview-page-down,ctrl-b:preview-page-up'"
+export FZF_DEFAULT_OPTS="--tac --reverse --height=60% --bind 'ctrl-e:preview-down,ctrl-y:preview-up,ctrl-f:preview-page-down,ctrl-b:preview-page-up'"
 
 # Load local configuration
 [ -f ~/.localrc ] && source ~/.localrc
