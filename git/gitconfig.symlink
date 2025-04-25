@@ -51,6 +51,7 @@
 
     # reset
     r = reset
+    rc = reset HEAD~1
     rh = reset --hard
     rha = !git aa && git rh
 
