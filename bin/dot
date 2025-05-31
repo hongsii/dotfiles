@@ -4,6 +4,8 @@
 
 set -e
 
+[[ "$LOGGER_LOADED" != true ]] && source "$HOME/.dotfiles/script/log.sh"
+
 parentDirectory="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P)"
 dotfilesDirectory="$(cd "$( dirname "$parentDirectory" )" && pwd -P)"
 
@@ -13,8 +15,9 @@ displayUsageAndExit() {
 	echo "Usage: dot [options]"
 	echo ""
 	echo "Options:"
-	echo "  -e, --edit    Open dotfiles directory for editing"
-	echo "  -h, --help    Show this help message and exit"
+	echo "  -e, --edit      Open dotfiles directory for editing"
+	echo "  -r, --refresh   Refresh dotfiles repository"
+	echo "  -h, --help      Show this help message and exit"
 	exit
 }
 
@@ -25,6 +28,25 @@ while test $# -ge 0; do
 			;;
 		"-e"|"--edit")
 			exec "$EDITOR" "$dotfilesDirectory"
+			exit
+			;;
+		"-r"|"--refresh")
+			cd "$dotfilesDirectory"
+            info 'Refreshing dotfiles'
+
+            ! git diff --quiet || ! git diff --cached --quiet && git stash push -u -m "Auto stash before pull" > /dev/null 2>&1 && STASHED=true
+
+            # Update repository
+            git fetch > /dev/null 2>&1
+            LOCAL=$(git rev-parse @)
+            REMOTE=$(git rev-parse @{u})
+            BASE=$(git merge-base @ @{u})
+            [ "$LOCAL" != "$REMOTE" ] && [ "$LOCAL" = "$BASE" ] && git pull --rebase --stat
+
+            [ "$STASHED" = true ] && git stash pop > /dev/null 2>&1
+
+            success "Refreshed dotfiles"
+
 			exit
 			;;
 		*)
