@@ -1,5 +1,7 @@
 #! /bin/bash
 
+[[ "$LOGGER_LOADED" != true ]] && source "$HOME/.dotfiles/script/log.sh"
+
 apply_korean_backtick() {
     # Change won to backtick
     local target_dir=$HOME/Library/KeyBindings
@@ -12,3 +14,4 @@ EOF
 }
 
 apply_korean_backtick
+success 'Apply korean backtick'

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+LOGGER_LOADED=true
+
 # logger
 info () { printf "\r  [ \033[00;34m..\033[0m ] $1\n"; }
 user () { printf "\r  [ \033[0;33m??\033[0m ] $1\n"; }
