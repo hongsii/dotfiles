@@ -17,28 +17,6 @@ include_functions() {
   done
 }
 
-install_brew() {
-  if command -v brew &>/dev/null; then
-    info 'Homebrew is already installed.'
-  else
-    info 'Homebrew is not installed. Installing Homebrew...'
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-    info 'Homebrew installation completed.'
-  fi
-
-  # bundle Brewfile
-  local brewfile_path="$DOTFILES_PATH/homebrew/BrewFile"
-  if [[ -f "$brewfile_path" ]]; then
-    info "Brewfile found at $brewfile_path. Installing packages..."
-    brew bundle --file="$brewfile_path"
-    brew cleanup
-    info "Package installation from Brewfile completed."
-  else
-    info "Brewfile not found at $brewfile_path. Skipping package installation."
-  fi
-}
-
 # Apply dotfiles to symbolic link
 install_dotfiles() {
   info 'installing dotfiles'
@@ -59,7 +37,7 @@ install_dotfiles() {
 }
 
 include_functions
-install_brew
 setup_gitconfig
 install_dotfiles
+run_install_homebrew
 run_install_script
