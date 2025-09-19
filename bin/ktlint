@@ -1,23 +1,63 @@
 #! /bin/bash
 # Print ktlint reports in IDEA 
 
-find . -type f -path "*/build/reports/ktlint/*" | while read -r file; do
-  if [ ! -s "$file" ]; then
-    continue
-  fi
+run_ktlint() {
+  local gradlew_dir
+  gradlew_dir=$(find_gradlew_dir)
 
-  extension="${file##*.}"
-  if [ "$extension" == "json" ]; then
-    if command -v jq &> /dev/null; then
-      json=$(jq . "$file")
-      if [ "$json" == "[]" ]; then
-        continue
-      fi
-      echo "$json"
+  if [ -n "$gradlew_dir" ]; then
+    echo "Running ktlint..."
+    "$gradlew_dir/gradlew" --project-dir "$gradlew_dir" ktlintCheck --daemon > /dev/null 2>&1
+  else
+    echo "gradlew not found" >&2
+    return 1
+  fi
+}
+
+find_gradlew_dir() {
+  local dir
+  dir=$(pwd)
+  while [ "$dir" != "/" ]; do
+    if [ -x "$dir/gradlew" ]; then
+      echo "$dir"
+      return
+    fi
+    dir=$(dirname "$dir")
+  done
+}
+
+print_reports() {
+  find . -type f -path "*/build/reports/ktlint/*" | while read -r file; do
+    [ -s "$file" ] || continue
+
+    local extension
+    extension="${file##*.}"
+
+    if [ "$extension" == "json" ]; then
+      print_json_report "$file"
     else
       cat "$file"
+    fi
+  done
+}
+
+print_json_report() {
+  local file="$1"
+  if command -v jq &> /dev/null; then
+    local json
+    json=$(jq . "$file")
+    if [ "$json" != "[]" ]; then
+      echo "$json"
     fi
   else
     cat "$file"
   fi
-done
+}
+
+main() {
+  if [ "$1" == "-r" ] || [ "$1" == "--run"]; then
+    run_ktlint
+  fi
+
+  print_reports
+}
