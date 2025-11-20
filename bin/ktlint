@@ -27,7 +27,7 @@ find_gradlew_dir() {
 }
 
 print_reports() {
-  find . -type f -path "*/build/reports/ktlint/*" | while read -r file; do
+  find . -type f -path "*/build/reports/ktlint/*" -print0 | while read -r -d '' file; do
     [ -s "$file" ] || continue
 
     local extension
@@ -44,20 +44,22 @@ print_reports() {
 print_json_report() {
   local file="$1"
   if command -v jq &> /dev/null; then
-    local json
-    json=$(jq . "$file")
-    if [ "$json" != "[]" ]; then
-      echo "$json"
+    if jq -e '. | length > 0' "$file" > /dev/null 2>&1; then
+      jq . "$file"
     fi
   else
-    cat "$file"
+    if ! grep -q "^\[\]$" "$file"; then
+      cat "$file"
+    fi
   fi
 }
 
 main() {
-  if [ "$1" == "-r" ] || [ "$1" == "--run"]; then
+  if [ "$1" = "-r" ] || [ "$1" = "--run"]; then
     run_ktlint
   fi
 
   print_reports
 }
+
+main "$@"
