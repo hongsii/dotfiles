@@ -1,0 +1,107 @@
+{
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "f25e40b4-2539-470b-978a-ca4c7cae0aee",
+        "type": "current-working-dir",
+        "color": "brightBlack",
+        "rawValue": true
+      },
+      {
+        "id": "e70f050f-f063-408a-835b-ea1eae6c3597",
+        "type": "flex-separator",
+        "color": "white"
+      },
+      {
+        "id": "000583de-61b0-4a92-b36a-e394d4d1aa1d",
+        "type": "git-branch",
+        "color": "green"
+      }
+    ],
+    [
+      {
+        "id": "0f6211e5-a31c-489e-b4ee-083eeea4b9fa",
+        "type": "flex-separator"
+      },
+      {
+        "id": "1",
+        "type": "model",
+        "color": "cyan",
+        "rawValue": true
+      },
+      {
+        "id": "628e1b24-189d-40b3-a06b-82725c42ee4d",
+        "type": "separator",
+        "character": "-"
+      },
+      {
+        "id": "3",
+        "type": "context-length",
+        "color": "brightBlue",
+        "rawValue": true
+      },
+      {
+        "id": "7734418f-4afe-4625-a6ae-7634c60d399d",
+        "type": "custom-text",
+        "customText": "("
+      },
+      {
+        "id": "2683b2b2-cf1c-424a-91e3-56a9a13c775b",
+        "type": "context-percentage-usable",
+        "rawValue": true,
+        "metadata": {
+          "inverse": "true"
+        },
+        "color": "blue"
+      },
+      {
+        "id": "859aa322-1dd8-4726-ad1e-1a808b4eca1d",
+        "type": "custom-text",
+        "customText": ")"
+      },
+      {
+        "id": "dab81c18-7731-44f6-abe1-b4366bea5df3",
+        "type": "separator"
+      },
+      {
+        "id": "52d29d24-3072-4974-83d1-8e2eb14ce8fe",
+        "type": "session-clock",
+        "rawValue": true,
+        "color": "brightWhite"
+      },
+      {
+        "id": "e269ac6b-df0d-4f89-a722-96da509c74dc",
+        "type": "separator",
+        "character": "|"
+      },
+      {
+        "id": "0dd38c3c-2a7a-4dc6-95af-f5f68ee5938e",
+        "type": "block-timer",
+        "color": "red",
+        "rawValue": true,
+        "metadata": {
+          "display": "time"
+        }
+      }
+    ],
+    []
+  ],
+  "flexMode": "full",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "autoAlign": false
+  }
+}
