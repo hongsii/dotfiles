@@ -27,7 +27,7 @@
       {
         "id": "1",
         "type": "model",
-        "color": "cyan",
+        "color": "brightYellow",
         "rawValue": true
       },
       {
@@ -49,11 +49,11 @@
       {
         "id": "2683b2b2-cf1c-424a-91e3-56a9a13c775b",
         "type": "context-percentage-usable",
+        "color": "blue",
         "rawValue": true,
         "metadata": {
           "inverse": "true"
-        },
-        "color": "blue"
+        }
       },
       {
         "id": "859aa322-1dd8-4726-ad1e-1a808b4eca1d",
@@ -67,8 +67,8 @@
       {
         "id": "52d29d24-3072-4974-83d1-8e2eb14ce8fe",
         "type": "session-clock",
-        "rawValue": true,
-        "color": "brightWhite"
+        "color": "brightWhite",
+        "rawValue": true
       },
       {
         "id": "e269ac6b-df0d-4f89-a722-96da509c74dc",
@@ -84,8 +84,7 @@
           "display": "time"
         }
       }
-    ],
-    []
+    ]
   ],
   "flexMode": "full",
   "compactThreshold": 60,
