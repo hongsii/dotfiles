@@ -1,59 +1,53 @@
 #!/bin/sh
 #
-# Based on https://github.com/holman/dotfiles/blob/master/bin/dot
+# dot - dotfiles management tool
 
 set -e
 
-[[ "$LOGGER_LOADED" != true ]] && source "$HOME/.dotfiles/script/log.sh"
+DOTFILES="$HOME/.dotfiles"
 
-parentDirectory="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd -P)"
-dotfilesDirectory="$(cd "$( dirname "$parentDirectory" )" && pwd -P)"
-
-displayUsageAndExit() {
-	echo "dot -- dotfiles management"
-	echo ""
-	echo "Usage: dot [options]"
-	echo ""
-	echo "Options:"
-	echo "  -e, --edit      Open dotfiles directory for editing"
-	echo "  -r, --refresh   Refresh dotfiles repository"
-	echo "  -h, --help      Show this help message and exit"
-	exit
+usage() {
+  echo "dot - dotfiles management"
+  echo ""
+  echo "Usage: dot <command>"
+  echo ""
+  echo "Commands:"
+  echo "  cd       Print dotfiles path (use with: cd \$(dot cd))"
+  echo "  edit     Open dotfiles in editor"
+  echo "  update   Pull latest changes from git"
+  echo "  install  Run bootstrap.sh"
+  echo "  help     Show this help message"
 }
 
-while test $# -ge 0; do
-	case "$1" in
-		"-h"|"--help")
-			displayUsageAndExit
-			;;
-		"-e"|"--edit")
-			exec "$EDITOR" "$dotfilesDirectory"
-			exit
-			;;
-		"-r"|"--refresh")
-			cd "$dotfilesDirectory"
-            info 'Refreshing dotfiles'
+cmd_cd() {
+  echo "$DOTFILES"
+}
 
-            ! git diff --quiet || ! git diff --cached --quiet && git stash push -u -m "Auto stash before pull" > /dev/null 2>&1 && STASHED=true
+cmd_edit() {
+  ${EDITOR:-vim} "$DOTFILES"
+}
 
-            # Update repository
-            git fetch > /dev/null 2>&1
-            LOCAL=$(git rev-parse @)
-            REMOTE=$(git rev-parse @{u})
-            BASE=$(git merge-base @ @{u})
-            [ "$LOCAL" != "$REMOTE" ] && [ "$LOCAL" = "$BASE" ] && git pull --rebase --stat
+cmd_update() {
+  echo "Updating dotfiles..."
+  git -C "$DOTFILES" pull --rebase --stat
+  echo "Done!"
+}
 
-            [ "$STASHED" = true ] && git stash pop > /dev/null 2>&1
+cmd_install() {
+  echo "Running bootstrap.sh..."
+  "$DOTFILES/bootstrap.sh"
+}
 
-            success "Refreshed dotfiles"
-
-			exit
-			;;
-		*)
-			echo "Invalid option: $1"
-			displayUsageAndExit
-			;;
-	esac
-	shift
-done
-
+case "${1:-help}" in
+  cd)      cmd_cd ;;
+  edit)    cmd_edit ;;
+  update)  cmd_update ;;
+  install) cmd_install ;;
+  help|-h|--help) usage ;;
+  *)
+    echo "Unknown command: $1"
+    echo ""
+    usage
+    exit 1
+    ;;
+esac
