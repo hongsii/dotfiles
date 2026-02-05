@@ -1,0 +1,39 @@
+# Docs : https://ghostty.org/docs/config
+# Reload Configuration : cmd + shift + ,
+
+# Theme
+theme = dracula
+
+# Font
+font-family = "JetBrainsMonoNL Nerd Font"
+font-size = 13
+font-style = medium
+
+# Window & UI
+adjust-cell-height = 5%
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+background = #000000
+background-opacity = 1
+unfocused-split-opacity = 0.8
+split-divider-color = #FFFFFF
+cursor-style = block
+cursor-style-blink = false
+scrollback-limit = 100000
+
+# Mouse
+mouse-hide-while-typing = true
+copy-on-select = clipboard
+
+# OS Specific
+confirm-close-surface = false
+
+# Keybind
+keybind = global:cmd+shift+grave_accent=toggle_quick_terminal
+
+## Split
+keybind = ctrl+shift+h=goto_split:left
+keybind = ctrl+shift+l=goto_split:right
+keybind = ctrl+shift+k=goto_split:up
+keybind = ctrl+shift+j=goto_split:down
