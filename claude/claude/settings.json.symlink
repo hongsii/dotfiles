@@ -4,5 +4,28 @@
     "type": "command",
     "command": "npx -y ccstatusline@latest",
     "padding": 0
+  },
+  "permissions": {
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(pwd)",
+
+      "Bash(git status)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git branch:*)",
+      "Bash(git show:*)",
+      "Bash(git remote -v)",
+
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(npm test:*)",
+      "Bash(yarn install:*)",
+      "Bash(yarn run:*)",
+      "Bash(yarn test:*)",
+
+      "Bash(*--version)",
+      "Bash(*--help)"
+    ]
   }
 }
