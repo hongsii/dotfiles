@@ -34,9 +34,6 @@ compinit
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_OPTS="--height=60% --bind 'ctrl-e:preview-down,ctrl-y:preview-up,ctrl-f:preview-page-down,ctrl-b:preview-page-up'"
 
-# Load local configuration
-[ -f ~/.localrc ] && source ~/.localrc
-
 ## Apply tab select
 zstyle ':completion:*' menu select
 bindkey '^[[Z' reverse-menu-complete
@@ -57,7 +54,11 @@ do
 done
 unset config_files
 
+# Homebrew env
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Load local configuration
+[ -f ~/.localrc ] && source ~/.localrc
 
 # Apply sdkman
 export SDKMAN_DIR="$HOME/.sdkman"
