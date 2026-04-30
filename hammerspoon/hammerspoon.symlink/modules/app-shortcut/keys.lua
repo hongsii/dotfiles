@@ -8,9 +8,7 @@ return {
     { key = "f", name = "Finder" },
     { key = "`", name = "Ghostty" },
     { key = "k", name = "KakaoTalk" },
-    { key = "n", name = "Notion" },
     { key = "s", name = "Slack" },
-    { key = "v", name = "VMware Horizon Client" },
     { key = ",", name = "System Preferences" },
     { key = "u", name = "Visual Studio Code" },
 }
