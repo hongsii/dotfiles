@@ -1,1 +1,2 @@
 git/gitconfig.local.symlink
+hammerspoon/hammerspoon.symlink/modules/**/*.local.lua
